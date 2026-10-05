@@ -1,0 +1,138 @@
+/* Fixed palette supplements and typography scale. */
+@theme static {
+  /* WeChat article viewport: fixed by the reader, never an article theme color. */
+  --color-wechat-page-light: #fff;
+  --color-wechat-page-dark: #191919;
+
+  /* Sea Glass light palette */
+  --color-sea-glass-0: #ffffff;
+  --color-sea-glass-50: #f9fbfb;
+  --color-sea-glass-100: #f3f7f7;
+  --color-sea-glass-150: #edf4f4;
+  --color-sea-glass-200: #e8f0f0;
+  --color-sea-glass-300: #dbe6e7;
+  --color-sea-glass-400: #cbdcde;
+  --color-sea-glass-500: #81969b;
+  --color-sea-glass-600: #627980;
+  --color-sea-glass-700: #39535b;
+  --color-sea-glass-800: #243b44;
+  --color-sea-glass-900: #172e36;
+
+  /* Linen light palette */
+  --color-linen-0: #ffffff;
+  --color-linen-50: #fbfaf7;
+  --color-linen-100: #f6f5f1;
+  --color-linen-150: #f0eee7;
+  --color-linen-200: #eceae4;
+  --color-linen-300: #e2e0d9;
+  --color-linen-400: #d1cec4;
+  --color-linen-500: #929890;
+  --color-linen-600: #717873;
+  --color-linen-700: #4b514c;
+  --color-linen-800: #373d39;
+  --color-linen-900: #202723;
+
+  /* Mist light palette */
+  --color-mist-0: #ffffff;
+  --color-mist-50: #f8f9fb;
+  --color-mist-100: #f1f4f8;
+  --color-mist-150: #ecf0f5;
+  --color-mist-200: #e6ebf2;
+  --color-mist-300: #d7dfe8;
+  --color-mist-400: #c5d0dc;
+  --color-mist-500: #8c98a7;
+  --color-mist-600: #697689;
+  --color-mist-700: #405166;
+  --color-mist-800: #334154;
+  --color-mist-900: #1f2d3d;
+
+  /* Sea Glass dark palette */
+  --color-sea-glass-dark-0: #294246;
+  --color-sea-glass-dark-50: #20373a;
+  --color-sea-glass-dark-100: #17292c;
+  --color-sea-glass-dark-200: #1b3033;
+  --color-sea-glass-dark-250: #304a4d;
+  --color-sea-glass-dark-300: #40595d;
+  --color-sea-glass-dark-400: #526c70;
+  --color-sea-glass-dark-500: #94aaa7;
+  --color-sea-glass-dark-600: #b3c7c3;
+  --color-sea-glass-dark-700: #dbe9e6;
+  --color-sea-glass-dark-800: #f1f6f4;
+  --color-sea-glass-dark-popup: #2b4549;
+
+  /* Linen dark palette */
+  --color-linen-dark-0: #39433d;
+  --color-linen-dark-50: #313a34;
+  --color-linen-dark-100: #222622;
+  --color-linen-dark-200: #2a302c;
+  --color-linen-dark-250: #354238;
+  --color-linen-dark-300: #46534a;
+  --color-linen-dark-400: #5a6a5e;
+  --color-linen-dark-500: #9eaaa0;
+  --color-linen-dark-600: #bac4bb;
+  --color-linen-dark-700: #dfe6df;
+  --color-linen-dark-800: #f2f5ef;
+  --color-linen-dark-popup: #2e3932;
+
+  /* Mist dark palette */
+  --color-mist-dark-0: #344456;
+  --color-mist-dark-50: #2c3949;
+  --color-mist-dark-100: #202934;
+  --color-mist-dark-200: #263342;
+  --color-mist-dark-250: #314254;
+  --color-mist-dark-300: #45566b;
+  --color-mist-dark-400: #566a82;
+  --color-mist-dark-500: #98a8bb;
+  --color-mist-dark-600: #b8c5d7;
+  --color-mist-dark-700: #dce6f2;
+  --color-mist-dark-800: #f3f7fc;
+  --color-mist-dark-popup: #2d3e50;
+
+  /* Accent palettes */
+  --color-teal-100: #dceeee;
+  --color-teal-200: #bfe1e1;
+  --color-teal-300: #b7d5d7;
+  --color-teal-500: #0a7780;
+  --color-teal-600: #075d65;
+  --color-teal-dark-100: #28494b;
+  --color-teal-dark-200: #37686a;
+  --color-teal-dark-300: #55797a;
+  --color-teal-dark-600: #89d2d3;
+
+  --color-moss-accent-100: #e8efdf;
+  --color-moss-accent-200: #ceddbd;
+  --color-moss-accent-300: #c6d5b4;
+  --color-moss-accent-500: #536d3e;
+  --color-moss-accent-600: #40552e;
+  --color-moss-accent-dark-100: #34432d;
+  --color-moss-accent-dark-200: #50643b;
+  --color-moss-accent-dark-300: #708a5a;
+  --color-moss-accent-dark-600: #b7d596;
+
+  --color-berry-accent-100: #f3e6ec;
+  --color-berry-accent-200: #e8cad8;
+  --color-berry-accent-300: #dfc2d0;
+  --color-berry-accent-500: #89516a;
+  --color-berry-accent-600: #703e56;
+  --color-berry-accent-dark-100: #4b3441;
+  --color-berry-accent-dark-200: #673f53;
+  --color-berry-accent-dark-300: #80596d;
+  --color-berry-accent-dark-600: #e2a7bf;
+
+
+  /* Fixed type sizes with paired line heights. */
+  --text-3xs: 0.625rem;
+  --text-3xs--line-height: 0.875rem;
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+  --text-base-compact: 1rem;
+  --text-base-compact--line-height: 1.25;
+  --text-xs-note: 0.75rem;
+  --text-xs-note--line-height: 1.5;
+  --text-xs-readable: 0.75rem;
+  --text-xs-readable--line-height: 1.625;
+  --text-xs-code: 0.75rem;
+  --text-xs-code--line-height: calc(1.25 / 0.75);
+  --text-editor-source: 0.875rem;
+  --text-editor-source--line-height: 1.75rem;
+}

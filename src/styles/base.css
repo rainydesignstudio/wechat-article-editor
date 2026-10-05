@@ -1,0 +1,42 @@
+  html {
+    @apply min-w-80 h-full overflow-hidden bg-canvas;
+
+    &[data-editor-theme-state="loading"] {
+      @apply bg-neutral-50;
+
+      @media (prefers-color-scheme: dark) {
+        @apply bg-neutral-950;
+      }
+    }
+  }
+
+  body {
+    @apply h-full overflow-hidden bg-canvas font-sans text-secondary antialiased;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [contenteditable='true']:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  ::selection {
+    @apply bg-selection text-secondary;
+  }

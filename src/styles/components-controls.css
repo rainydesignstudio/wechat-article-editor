@@ -1,0 +1,205 @@
+@layer components {
+  .information-button {
+    @apply flex min-w-0 items-center gap-2.5 rounded-md text-left text-primary;
+
+    @variant hover {
+      @apply text-accent-text;
+    }
+
+    @variant focus-visible {
+      @apply rounded-sm outline-2 outline-offset-2 outline-accent;
+    }
+
+    @variant disabled {
+      @apply cursor-default text-primary;
+    }
+  }
+
+  .information-badge {
+    @apply grid h-9 w-8 shrink-0 place-items-center rounded-md bg-accent-soft text-accent-text;
+  }
+
+  .information-badge svg {
+    @apply size-5;
+  }
+
+  .information-copy {
+    @apply flex min-w-0 flex-col gap-0.5;
+  }
+
+  .information-title {
+    @apply truncate text-xs font-semibold text-primary;
+  }
+
+  .information-subtitle {
+    @apply truncate text-2xs text-muted;
+  }
+
+
+  .collapsible-panel {
+    @apply flex min-h-0 flex-col overflow-hidden rounded-lg border border-line bg-list/50;
+  }
+
+  .panel-heading {
+    @apply flex w-full shrink-0 items-center gap-3 rounded-lg px-4 py-3 text-left font-sub-heading text-sm font-semibold text-primary hover:bg-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+
+  .collapsible-panel-content {
+    @apply mt-2 min-h-0 px-4 pb-4;
+  }
+
+  .eyebrow {
+    @apply font-eyebrow text-xs font-medium tracking-widest text-eyebrow;
+  }
+
+  .button-bar {
+    @apply flex shrink-0 flex-wrap items-center gap-2;
+  }
+
+  .button-bar .button-quiet {
+    @apply border-line bg-(--editor-quiet-bar-background) text-secondary;
+  }
+
+  .button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-line bg-button-surface px-3 py-2 text-sm font-medium text-secondary transition;
+
+    @variant hover {
+      @apply border-line-strong bg-hover;
+    }
+
+    @variant focus-visible {
+      @apply outline-2 outline-offset-2 outline-accent;
+    }
+
+    @variant disabled {
+      @apply cursor-not-allowed opacity-50;
+    }
+
+    @variant aria-disabled {
+      @apply cursor-not-allowed opacity-50;
+    }
+  }
+
+  .button-primary {
+    @apply border-action-line bg-action text-action-text;
+
+    @variant hover {
+      @apply border-accent-strong bg-action-hover bg-(image:--editor-action-gradient) text-action-text;
+    }
+  }
+
+  .button-quiet {
+    @apply border-transparent bg-button-surface text-muted;
+
+    @variant hover {
+      @apply border-line bg-hover text-primary;
+    }
+  }
+
+  .button-danger {
+    @apply border-danger/30 bg-danger-surface text-danger;
+
+    @variant hover {
+      @apply border-danger bg-danger text-on-danger;
+    }
+  }
+
+  .status-copy {
+    @apply text-xs text-muted;
+
+    @variant data-[tone=success] {
+      @apply text-success;
+    }
+
+    @variant data-[tone=warning] {
+      @apply text-warning;
+    }
+
+    @variant data-[tone=error] {
+      @apply text-danger;
+    }
+  }
+
+  .preview-toggle {
+    @apply inline-flex w-max gap-1 rounded-lg border border-line bg-list p-1;
+  }
+
+  .editor-workspace[data-wide="true"] .preview-toggle {
+    @apply hidden;
+  }
+
+  .preview-toggle button {
+    @apply min-h-8 rounded-md border-0 bg-transparent px-3 py-1.5 text-sm text-muted;
+
+    @variant data-[active=true] {
+      @apply bg-panel text-accent-text shadow-toggle;
+    }
+
+    @variant focus-visible {
+      @apply outline-2 outline-offset-2 outline-accent;
+    }
+  }
+
+  .field-stack {
+    @apply grid gap-1.5;
+  }
+
+  .field-label {
+    @apply text-xs font-medium text-muted;
+  }
+
+  .field {
+    @apply min-h-10 w-full rounded-md border border-line bg-(--editor-field-background) px-3 py-2 text-sm text-secondary;
+
+    @variant focus {
+      @apply border-accent outline-2 outline-offset-1 outline-accent/40;
+    }
+
+    @variant disabled {
+      @apply cursor-not-allowed opacity-55;
+    }
+  }
+
+  textarea.field {
+    @apply min-h-20 resize-y;
+  }
+
+  .article-list-meta {
+    @apply text-xs text-muted;
+  }
+
+  .clipboard-dock {
+    @apply min-w-0 bg-list;
+  }
+
+  .clipboard-dock-toggle {
+    /* The collapsed dock is a 36px bar, so its height comes from h-9 rather than from padding. */
+    @apply flex h-9 w-full items-center justify-between gap-3 rounded-md px-3 text-xs font-medium text-muted;
+
+    @variant hover {
+      @apply bg-hover;
+    }
+
+    @variant focus-visible {
+      @apply outline-2 outline-offset-2 outline-accent;
+    }
+  }
+
+  /* The body stays mounted while collapsed so the max-height animation has something to grow; it is
+     marked inert instead, which keeps the paste button out of the tab order until the bar opens. */
+  .clipboard-dock-body {
+    @apply flex min-h-0 flex-col overflow-hidden transition-[max-height] duration-500 ease-out motion-reduce:transition-none;
+  }
+
+  .clipboard-dock-content {
+    @apply flex min-h-0 flex-1 flex-col gap-3 px-3 pb-3;
+  }
+
+  .clipboard-receiver {
+    /* Pasted content is bounded by the dock's own max-height alone; this box is the scroller that
+       takes up whatever the dock does not, so there is one ceiling instead of two competing ones. */
+    /* The surface follows the preview's light/dark, the way the theme library's sample does; the
+       pasted markup keeps its own inline colours so the box still shows what the clipboard held. */
+    @apply min-w-0 min-h-16 overflow-auto wrap-anywhere rounded-md border border-dashed border-line-strong bg-wechat-page-light p-3 text-xs-readable text-muted data-[preview-mode=dark]:bg-wechat-page-dark;
+  }
+}

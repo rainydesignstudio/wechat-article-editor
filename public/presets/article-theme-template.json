@@ -1,0 +1,23 @@
+{
+  "kind": "article-theme",
+  "id": "my-article-theme",
+  "name": "我的文章主题",
+  "version": "1.0.0",
+  "formatVersion": 1,
+  "tokens": {
+    "color-article-ink": "oklch(31% 0.025 255)",
+    "color-article-heading": "oklch(22% 0.035 255)",
+    "color-article-muted": "oklch(52% 0.025 255)",
+    "color-article-paper": "oklch(99% 0.004 255)",
+    "color-article-line": "oklch(87% 0.018 255)",
+    "color-article-accent": "oklch(58% 0.12 220)",
+    "color-article-link": "oklch(52% 0.15 235)",
+    "color-article-tint": "oklch(96% 0.018 225)",
+    "color-article-code": "oklch(30% 0.04 250)",
+    "color-article-code-surface": "oklch(23% 0.035 255)",
+    "color-article-code-tint": "oklch(94% 0.018 255)",
+    "font-article-sans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "font-article-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+  },
+  "css": "\n.article-preview {\n  color: var(--color-article-ink);\n  background: var(--color-article-paper);\n  font-family: var(--font-article-sans);\n}\n.article-preview .article-body {\n  max-width: 42rem;\n  margin-inline: auto;\n  padding: 2rem 1.5rem 4rem;\n  overflow-wrap: anywhere;\n}\n.article-preview .article-body > :first-child { margin-top: 0; }\n.article-preview .article-body h1,\n.article-preview .article-body h2,\n.article-preview .article-body h3,\n.article-preview .article-body h4,\n.article-preview .article-body h5,\n.article-preview .article-body h6 {\n  color: var(--color-article-heading);\n  font-weight: 700;\n  letter-spacing: -0.02em;\n  line-height: 1.2;\n  margin: 2rem 0 0.75rem;\n}\n.article-preview .article-body h1 { font-size: 2.25rem; }\n.article-preview .article-body h2 { font-size: 1.75rem; border-bottom: 0.0625rem solid var(--color-article-line); padding-bottom: 0.5rem; }\n.article-preview .article-body h3 { font-size: 1.375rem; }\n.article-preview .article-body h4 { font-size: 1.125rem; }\n.article-preview .article-body h5 { font-size: 1rem; }\n.article-preview .article-body h6 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; }\n.article-preview .article-body p,\n.article-preview .article-body ul,\n.article-preview .article-body ol,\n.article-preview .article-body blockquote,\n.article-preview .article-body pre,\n.article-preview .article-body table,\n.article-preview .article-body figure { margin: 1rem 0; }\n.article-preview .article-body p,\n.article-preview .article-body li { line-height: 1.8; }\n.article-preview .article-body a { color: var(--color-article-link); text-decoration: underline; text-underline-offset: 0.15em; }\n.article-preview .article-body strong { color: var(--color-article-heading); font-weight: 750; }\n.article-preview .article-body del { color: var(--color-article-muted); }\n.article-preview .article-body blockquote { border-left: 0.25rem solid var(--color-article-accent); background: var(--color-article-tint); padding: 0.75rem 1rem; color: var(--color-article-muted); }\n.article-preview .article-body ul { list-style: disc; padding-left: 1.5rem; }\n.article-preview .article-body ol { list-style: decimal; padding-left: 1.5rem; }\n.article-preview .article-body li + li { margin-top: 0.35rem; }\n.article-preview .article-body hr { border: 0; border-top: 0.0625rem solid var(--color-article-line); margin: 2rem 0; }\n.article-preview .article-body code { background: var(--color-article-code-tint); border-radius: 0.25rem; color: var(--color-article-code); font-family: var(--font-article-mono); font-size: 0.88em; padding: 0.15em 0.35em; }\n.article-preview .article-body pre { background: var(--color-article-code-surface); border: 0.0625rem solid var(--color-article-line); border-radius: 0.75rem; color: var(--color-article-code); overflow-x: auto; padding: 1rem; }\n.article-preview .article-body pre code { background: transparent; color: inherit; padding: 0; white-space: pre; }\n.article-preview .article-body table { border-collapse: collapse; display: block; max-width: 100%; overflow-x: auto; }\n.article-preview .article-body th,\n.article-preview .article-body td { border: 0.0625rem solid var(--color-article-line); padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }\n.article-preview .article-body th { background: var(--color-article-tint); color: var(--color-article-heading); }\n.article-preview .article-body img { border-radius: 0.75rem; height: auto; max-width: 100%; }\n.article-preview .article-body figcaption { color: var(--color-article-muted); font-size: 0.875rem; margin-top: 0.5rem; text-align: center; }\n.article-preview .article-body input[type='checkbox'] { accent-color: var(--color-article-accent); margin-right: 0.5rem; }\n"
+}

@@ -1,0 +1,15 @@
+/* Editor colors, fonts and control surfaces load before components and utilities. */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "./theme.css" layer(theme);
+@import "./editor-theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "./base.css" layer(base);
+@import "./components.css";
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+@source "../app/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
+@source not "../../*.md";
+@source not "../../data/**";

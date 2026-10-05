@@ -1,0 +1,105 @@
+@layer components {
+
+  .theme-stylebook-reader {
+    @apply min-h-0 min-w-0 flex-1 overflow-auto rounded-lg border border-line bg-list;
+  }
+
+  .theme-stylebook-reader .article-body {
+    @apply w-full;
+  }
+
+  .content-library-note {
+    @apply border-l-4 border-line bg-list px-3.5 py-3 text-xs-note text-muted;
+
+    @variant data-[tone=warning] {
+      @apply border-warning-line bg-warning-surface text-warning-strong;
+    }
+  }
+
+  .content-library-issues {
+    @apply grid gap-2 border-l-4 border-danger bg-list px-3.5 py-3 text-xs-note text-danger;
+  }
+
+  .media-library-issues {
+    @apply grid gap-2 border-l-4 border-warning-line bg-warning-surface px-3.5 py-3 text-xs-note text-warning-strong;
+  }
+
+  .media-gallery-thumbnail {
+    @apply relative grid aspect-square min-w-0 place-items-center overflow-hidden border-b border-line bg-list;
+  }
+
+  .media-image-tile {
+    @apply absolute inset-0 size-full object-contain;
+  }
+
+  .media-image-placeholder {
+    @apply grid size-full min-h-24 place-items-center px-3 text-center text-xs text-muted;
+  }
+
+
+
+
+
+
+
+  .article-local-image-open {
+    @apply cursor-zoom-in;
+
+    @variant focus-visible {
+      @apply outline-2 outline-offset-2 outline-accent;
+    }
+  }
+
+  .article-local-image-placeholder {
+    @apply inline-grid place-items-center rounded-lg border border-dashed border-line bg-list px-3 py-2 text-xs text-muted;
+  }
+
+  .media-dialog-backdrop {
+    @apply z-30;
+  }
+
+  .media-asset-dialog {
+    @apply flex max-h-full max-w-5xl flex-col overflow-hidden;
+  }
+
+  .media-asset-preview {
+    @apply grid min-h-32 min-w-0 flex-1 place-items-center overflow-hidden bg-list p-4;
+  }
+
+  .media-image-dialog {
+    @apply block max-h-full max-w-full object-contain;
+  }
+
+  .media-image-placeholder-dialog {
+    @apply grid min-h-32 w-full place-items-center px-4 text-center text-xs text-muted;
+  }
+
+  .media-asset-details {
+    @apply grid shrink-0 gap-1 border-b border-line p-4 text-xs text-muted;
+  }
+
+  .media-asset-details strong {
+    @apply break-all text-sm text-secondary;
+  }
+
+  .media-asset-details code {
+    @apply break-all font-mono text-xs;
+  }
+
+  .media-asset-rename {
+    @apply grid shrink-0 gap-3 p-4;
+  }
+
+  .media-asset-name-input {
+    @apply flex items-center gap-2;
+  }
+
+  .media-asset-name-input input {
+    @apply min-w-0 flex-1;
+  }
+
+  .media-asset-name-input code {
+    @apply shrink-0 font-mono text-xs text-muted;
+  }
+
+}

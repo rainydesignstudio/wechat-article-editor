@@ -1,0 +1,20 @@
+{
+  "id": "rainy",
+  "name": "Rainy Design",
+  "version": "1.0.47",
+  "formatVersion": 1,
+  "tokens": {
+    "color-article-ink": "#262626",
+    "color-article-heading": "#171717",
+    "color-article-muted": "#737373",
+    "color-article-quote-surface": "#f8fafc",
+    "color-article-line": "#90a1b9",
+    "color-article-accent": "#45556c",
+    "color-article-link": "#45556c",
+    "color-article-tint": "#f1f5f9",
+    "color-article-code": "#45556c",
+    "color-article-code-surface": "#1e293b",
+    "color-article-code-tint": "#f1f5f9"
+  },
+  "css": ".article-preview { color: var(--color-article-ink); }\n.article-preview .article-body { max-width: 42rem; margin: 0 auto; padding: 28px 20px 44px; font-size: 16px; line-height: 1.6; }\n.article-preview .article-body h1 { font-size: 30px; line-height: 1.4; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 28px; padding: 0 0 18px; border-bottom: 1px solid var(--color-article-line); }\n.article-preview .article-body h2 { font-size: 22px; line-height: 1.5; font-weight: 700; margin: 36px 0 16px; padding: 0 0 10px; border-bottom: 1px solid var(--color-article-line); }\n.article-preview .article-body h3 { font-size: 18px; line-height: 1.6; font-weight: 700; margin: 28px 0 12px; }\n.article-preview .article-body p { margin: 0 0 10px; }\n.article-preview .article-body a { text-decoration: underline; }\n.article-preview .article-body strong { display: inline; font-weight: 700; }\n.article-preview .article-body em { }\n.article-preview .article-body del { }\n.article-preview .article-body ul { margin: 16px 0; padding: 0 0 0 24px; }\n.article-preview .article-body ol { margin: 16px 0; padding: 0 0 0 24px; }\n.article-preview .article-body li { margin: 0 0 8px; }\n.article-preview .article-body blockquote { color: var(--color-article-heading); background-color: var(--color-article-tint); border-bottom: 2px solid var(--color-article-line); margin: 26px 0; padding: 18px 22px; }\n.article-preview .article-body blockquote p { margin: 0 0 10px; }\n.article-preview .article-body code { color: var(--color-article-code); background-color: var(--color-article-code-tint); font-size: 14px; padding: 3px 5px; border: 1px solid var(--color-article-heading); border-radius: 24px; }\n.article-preview .article-body pre { color: var(--color-article-code-tint); background-color: var(--color-article-code-surface); font-size: 14px; line-height: 1.7; margin: 24px 0; padding: 18px; border-radius: 8px; overflow-x:auto ; }\n.article-preview .article-body pre code { color: var(--color-article-code-tint); background-color: transparent; border: 0; font-size: 14px; padding: 0; white-space: nowrap; }\n.article-preview .article-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; line-height: 1.7; border: 1px solid var(--color-article-line); }\n.article-preview .article-body thead th,\n.article-preview .article-body thead td { color: var(--color-article-heading); background-color: var(--color-article-tint); font-weight: 700; padding: 9px 12px; border: 1px solid var(--color-article-line); font-weight: bold; }\n.article-preview .article-body td { border: 1px solid var(--color-article-line); padding: 9px 12px; vertical-align: top; }\n.article-preview .article-body img { max-width: 100%; height: auto; border-radius: 6px; display: block; }\n"
+}

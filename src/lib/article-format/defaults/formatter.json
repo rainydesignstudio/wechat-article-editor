@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "id": "wechat-official"
+  },
+  "steps": [
+    {
+      "id": "soft-breaks",
+      "operator": "markdown.soft-breaks",
+      "enabled": true,
+      "parameters": {
+        "mode": "space"
+      }
+    },
+    {
+      "id": "blank-lines",
+      "operator": "markdown.blank-lines",
+      "enabled": true,
+      "parameters": {
+        "preserve": true,
+        "betweenBlocks": 2,
+        "atEdges": 1
+      }
+    },
+    {
+      "id": "code-highlight",
+      "operator": "markdown.code-highlight",
+      "enabled": true,
+      "parameters": {
+        "styles": [
+          {
+            "selectors": [
+              "pre"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-code) 26%, white)"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-comment",
+              "pre .hljs-quote"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-muted) 36%, white)",
+              "font-style": "italic"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-keyword",
+              "pre .hljs-selector-tag",
+              "pre .hljs-section",
+              "pre .hljs-name",
+              "pre .hljs-meta-keyword",
+              "pre .hljs-template-tag"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-link) 34%, white)",
+              "font-weight": "700"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-string",
+              "pre .hljs-regexp",
+              "pre .hljs-addition"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-accent) 34%, white)"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-number",
+              "pre .hljs-literal",
+              "pre .hljs-symbol",
+              "pre .hljs-bullet"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-heading) 28%, white)"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-title",
+              "pre .hljs-title.function_",
+              "pre .hljs-title.class_",
+              "pre .hljs-built_in"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-link) 24%, white)",
+              "font-weight": "700"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-attr",
+              "pre .hljs-attribute",
+              "pre .hljs-property",
+              "pre .hljs-variable",
+              "pre .hljs-template-variable",
+              "pre .hljs-params"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-muted) 20%, white)"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-deletion"
+            ],
+            "declarations": {
+              "color": "color-mix(in oklch, var(--color-article-accent) 32%, white)",
+              "text-decoration": "line-through"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-emphasis"
+            ],
+            "declarations": {
+              "font-style": "italic"
+            }
+          },
+          {
+            "selectors": [
+              "pre .hljs-strong"
+            ],
+            "declarations": {
+              "font-weight": "700"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "code-whitespace",
+      "operator": "markdown.code-whitespace",
+      "enabled": true,
+      "parameters": {
+        "tabSize": 4
+      }
+    },
+    {
+      "id": "paper",
+      "operator": "preview.surface",
+      "enabled": true,
+      "parameters": {
+        "lightBackground": "#ffffff",
+        "darkBackground": "#191919",
+        "fontFamily": "\"mp-quote\", PingFang SC, system-ui, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", \"Hiragino Sans GB\", \"Microsoft YaHei UI\", \"Microsoft YaHei\", Arial, sans-serif",
+        "color": "#1f1f1f",
+        "stripThemeBackground": true
+      }
+    },
+    {
+      "id": "dark-mode",
+      "operator": "preview.dark-mode",
+      "enabled": true,
+      "parameters": {
+        "transform": "mp-darkmode",
+        "options": {
+          "mode": "dark",
+          "defaultDarkTextColor": "#989898",
+          "whitelist": {
+            "attribute": [
+              "data-no-dark"
+            ]
+          },
+          "needJudgeFirstPage": false,
+          "noEmit": false
+        }
+      }
+    },
+    {
+      "id": "drop-font",
+      "operator": "css.drop-properties",
+      "enabled": true,
+      "parameters": {
+        "properties": [
+          "font-family"
+        ]
+      }
+    },
+    {
+      "id": "utility-aliases",
+      "operator": "css.utility-aliases",
+      "enabled": true,
+      "parameters": {
+        "aliases": {}
+      }
+    },
+    {
+      "id": "inline-style",
+      "operator": "output.css",
+      "enabled": true,
+      "parameters": {
+        "inlineProperties": [
+          "display",
+          "max-width",
+          "box-sizing",
+          "color",
+          "background-color",
+          "background-image",
+          "background-size",
+          "background-position",
+          "background-repeat",
+          "box-shadow",
+          "font-family",
+          "font-size",
+          "font-style",
+          "font-weight",
+          "line-height",
+          "letter-spacing",
+          "margin",
+          "margin-top",
+          "margin-bottom",
+          "margin-left",
+          "margin-right",
+          "padding",
+          "padding-left",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "border",
+          "border-top",
+          "border-right",
+          "border-bottom",
+          "border-left",
+          "border-radius",
+          "border-collapse",
+          "text-align",
+          "text-decoration",
+          "text-decoration-color",
+          "text-underline-offset",
+          "text-transform",
+          "text-indent",
+          "vertical-align",
+          "white-space",
+          "overflow-wrap",
+          "word-break",
+          "overflow-x",
+          "overflow-y",
+          "flex-direction",
+          "flex-wrap",
+          "flex-grow",
+          "flex-shrink",
+          "flex-basis",
+          "justify-content",
+          "align-items",
+          "align-self",
+          "align-content",
+          "gap",
+          "grid-template-columns",
+          "grid-template-rows",
+          "grid-auto-flow",
+          "grid-column",
+          "grid-row",
+          "object-fit",
+          "object-position",
+          "float",
+          "clear",
+          "accent-color",
+          "list-style-type",
+          "list-style-position",
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "inset",
+          "z-index",
+          "transform",
+          "transform-origin",
+          "translate",
+          "rotate",
+          "scale",
+          "opacity",
+          "visibility",
+          "text-shadow",
+          "border-image",
+          "border-image-source",
+          "border-image-slice",
+          "border-image-width",
+          "border-image-outset",
+          "border-image-repeat",
+          "writing-mode",
+          "direction",
+          "fill",
+          "stroke",
+          "stroke-width"
+        ],
+        "dimensionProperties": [
+          "width",
+          "height",
+          "min-width",
+          "min-height",
+          "max-height"
+        ],
+        "preserveAutoDimensions": true,
+        "colorEncoding": "rgb"
+      }
+    },
+    {
+      "id": "html",
+      "operator": "output.html",
+      "enabled": true,
+      "parameters": {
+        "wrapperTag": "section",
+        "preserveAttributes": [
+          "leaf",
+          "nodeleaf",
+          "data-w",
+          "data-h",
+          "data-no-dark",
+          "data-ignore-width",
+          "data-ignore-dm",
+          "data-role",
+          "data-mode",
+          "data-ratio",
+          "data-colwidth",
+          "data-src"
+        ],
+        "removeClasses": true,
+        "stripRootBackground": true
+      }
+    },
+    {
+      "id": "text",
+      "operator": "output.text",
+      "enabled": true,
+      "parameters": {
+        "maxConsecutiveNewlines": 2,
+        "trim": true
+      }
+    },
+    {
+      "id": "visual",
+      "operator": "output.visual",
+      "enabled": true,
+      "parameters": {
+        "width": 750,
+        "pngBackground": "#ffffff",
+        "pdfBackground": "#ffffff",
+        "maxCanvasSide": 16000,
+        "pdfMargin": 36
+      }
+    }
+  ]
+}

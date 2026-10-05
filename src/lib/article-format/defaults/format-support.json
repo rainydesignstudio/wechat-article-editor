@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "id": "wechat-official",
+    "name": "微信公众号官方规范",
+    "sources": {
+      "wechat-editor": {
+        "url": "https://developers.weixin.qq.com/doc/service/guide/product/plugin_spec.html"
+      },
+      "official-implementation": {
+        "url": "https://github.com/wechatjs/verify-article-structure-spec",
+        "version": "0.2.17",
+        "commit": "1340988eccbb63181a56141a5c2171d55cd42521"
+      }
+    }
+  },
+  "rules": [
+    {
+      "id": "opacity",
+      "section": "1.1",
+      "title": "隐藏图片与SVG背景重叠",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "opacity",
+      "anchor": "_1-1-opacity"
+    },
+    {
+      "id": "caret-color",
+      "section": "1.2",
+      "title": "透明光标",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "caret-color",
+      "anchor": "_1-2-caret-color"
+    },
+    {
+      "id": "line-height",
+      "section": "1.3",
+      "title": "多行文字重叠",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "line-height",
+      "anchor": "_1-3-line-height"
+    },
+    {
+      "id": "width",
+      "section": "1.4",
+      "title": "响应式宽度与横向溢出",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "width",
+      "anchor": "_1-4-width"
+    },
+    {
+      "id": "height",
+      "section": "1.5",
+      "title": "文字隐藏与裁切",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "height",
+      "anchor": "_1-5-height"
+    },
+    {
+      "id": "text-align",
+      "section": "1.6",
+      "title": "start／end跨端对齐",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "text-align",
+      "anchor": "_1-6-text-align"
+    },
+    {
+      "id": "animate-begin",
+      "section": "1.7",
+      "title": "触摸与点击触发",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "animate-begin",
+      "anchor": "_1-7-begin"
+    },
+    {
+      "id": "pre",
+      "section": "1.8",
+      "title": "普通段落使用pre",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "pre",
+      "anchor": "_1-8-pre"
+    },
+    {
+      "id": "nesting",
+      "section": "2.1",
+      "title": "冗余相同嵌套",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "nesting",
+      "anchor": "_2-1-嵌套层级限制"
+    },
+    {
+      "id": "span-leaf",
+      "section": "2.2",
+      "title": "行内容器包含块节点",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "span-leaf",
+      "anchor": "_2-2-span-leaf-节点规范"
+    },
+    {
+      "id": "node-leaf",
+      "section": "2.3",
+      "title": "组件容器结构",
+      "severity": "error",
+      "source": "wechat-editor",
+      "validator": "node-leaf",
+      "anchor": "_2-3-section-nodeleaf-节点规范"
+    },
+    {
+      "id": "font-family",
+      "section": "3",
+      "title": "自定义字体族",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "font-family",
+      "anchor": "_3、字体使用规范"
+    },
+    {
+      "id": "dark-contrast",
+      "section": "4.1.1",
+      "title": "深色文字与背景对比",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "dark-contrast",
+      "anchor": "_4-1-1-使用对比度适中的颜色"
+    },
+    {
+      "id": "dark-gradient",
+      "section": "4.1.2",
+      "title": "文字背景渐变",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "dark-gradient",
+      "anchor": "_4-1-2-如非必要，文字背景尽量不要使用渐变"
+    },
+    {
+      "id": "important",
+      "section": "4.5.2",
+      "title": "作者使用!important",
+      "severity": "warning",
+      "source": "wechat-editor",
+      "validator": "important",
+      "anchor": "_4-5-2-不要使用-important"
+    }
+  ],
+  "manualReview": [
+    {
+      "id": "image-text",
+      "section": "4.3.1",
+      "title": "图片中的文字需人工核对",
+      "selector": "img",
+      "anchor": "_4-3-1-如非必要，不要使用图片来承载纯文本",
+      "source": "wechat-editor"
+    },
+    {
+      "id": "transparent-image",
+      "section": "4.3.2",
+      "title": "透明图片在深色背景的可读性需人工核对",
+      "selector": "img",
+      "anchor": "_4-3-2-谨慎使用透明底色图片",
+      "source": "wechat-editor"
+    },
+    {
+      "id": "svg-content",
+      "section": "4.4",
+      "title": "SVG的深色可读性需人工核对",
+      "selector": "svg",
+      "anchor": "_4-4-SVG",
+      "source": "wechat-editor"
+    },
+    {
+      "id": "background-container",
+      "section": "4.2.1",
+      "title": "共用背景应放在容器上，需人工核对",
+      "selector": ".article-body",
+      "description": "多个文本共用背景时，官方建议把背景写在公共容器，减少重复计算及颜色转换差异。",
+      "anchor": "_4-2-1-建议使用背景容器-多文本节点的结构",
+      "source": "wechat-editor"
+    },
+    {
+      "id": "visual-order",
+      "section": "4.2.2",
+      "title": "视觉顺序与结构嵌套的一致性需人工核对",
+      "selector": ".article-body",
+      "description": "官方禁止通过绝对定位或变形破坏视觉与结构顺序。实际视觉和背景从属关系尚未自动核对。",
+      "anchor": "_4-2-2-保持正确的嵌套关系",
+      "source": "wechat-editor"
+    }
+  ]
+}

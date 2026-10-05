@@ -1,0 +1,275 @@
+@layer components {
+  .dialog-backdrop {
+    @apply fixed inset-0 z-60 grid place-items-center bg-(--editor-dialog-backdrop) p-3 backdrop-blur-sm;
+  }
+
+  .dialog-card {
+    /* Geometry rationale: no standard max-height token combines this viewport cap with the 56rem ceiling. */
+    @apply max-h-[min(90dvh,56rem)] w-full max-w-136 overflow-auto rounded-lg border border-line bg-panel shadow-(--editor-dialog-shadow);
+  }
+
+  .dialog-header {
+    @apply flex items-start justify-between gap-4 border-b border-line p-4;
+  }
+
+  .dialog-title {
+    @apply text-lg font-semibold text-primary;
+  }
+
+  .dialog-content {
+    @apply grid gap-4 p-4;
+  }
+
+  .dialog-actions {
+    @apply flex flex-wrap justify-end gap-2 border-t border-line pt-3;
+  }
+
+  /* `.dialog-actions` carries only the divider and the gap above it, so a footer that is a direct
+     child of the dialog card would otherwise sit flush against the card edge. This band owns the
+     card's horizontal and bottom padding for that case, on the same p-4 grid as every other
+     dialog section. */
+  .dialog-footer {
+    @apply shrink-0 px-4 pb-4;
+  }
+
+  .history-view {
+    @apply flex h-full min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-canvas;
+  }
+
+  .history-view-header {
+    @apply flex shrink-0 flex-col gap-3 border-b border-line bg-panel px-4 py-3;
+
+    @variant md {
+      @apply flex-row items-center px-8;
+    }
+  }
+
+  .history-view-back {
+    @apply shrink-0 self-start;
+  }
+
+  .history-view-back svg {
+    @apply size-4;
+  }
+
+  .history-view-heading {
+    @apply min-w-0 flex-1;
+  }
+
+  .history-view-title {
+    @apply truncate text-lg font-semibold text-primary;
+
+    @variant md {
+      @apply text-xl;
+    }
+  }
+
+  .history-view-content {
+    @apply flex min-h-0 min-w-0 flex-1 flex-col gap-4 overflow-x-clip overflow-y-auto p-4;
+
+    @variant md {
+      @apply p-6;
+    }
+
+    @variant lg {
+      @apply overflow-hidden;
+    }
+  }
+
+  .history-preview-tabs {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .history-preview-tabs [aria-pressed="true"] {
+    @apply border-accent bg-accent-soft text-accent-text;
+  }
+
+  .history-grid {
+    @apply flex min-h-0 min-w-0 flex-col gap-4;
+
+    @variant lg {
+      @apply flex-1 flex-row;
+    }
+  }
+
+  .history-list {
+    @apply grid min-w-0 content-start gap-2;
+
+    @variant lg {
+      @apply min-h-0 w-68 shrink-0 max-h-full overflow-x-clip overflow-y-auto;
+    }
+  }
+
+  .history-detail {
+    @apply grid min-h-0 min-w-0 flex-1 content-start gap-4;
+
+    @variant lg {
+      @apply max-h-full overflow-x-clip overflow-y-auto;
+    }
+  }
+
+  .history-detail-heading h3 {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  .history-detail-heading p {
+    @apply mt-1 mb-0 text-xs text-muted;
+  }
+
+  .history-source-comparison,
+  .history-metadata-comparison {
+    @apply grid min-w-0 gap-3;
+  }
+
+  .history-diff-columns,
+  .history-render-comparison {
+    @apply grid min-w-0 gap-3;
+
+    @variant md {
+      @apply grid-cols-2;
+    }
+  }
+
+  .history-diff-columns section,
+  .history-render-comparison section {
+    @apply grid min-w-0 content-start gap-2;
+  }
+
+  .history-diff-columns h4,
+  .history-render-comparison h4,
+  .history-metadata-comparison h4,
+  .history-copy-form h4 {
+    @apply text-xs font-semibold text-primary;
+  }
+
+  .history-diff-lines {
+    /* Geometry rationale: code comparison needs a 42dvh viewport cap and a 32rem ceiling while retaining its own horizontal scroll. */
+    @apply max-h-[min(42dvh,32rem)] min-w-0 overflow-auto rounded-md border border-line bg-list p-2 font-mono text-xs text-secondary;
+  }
+
+  .history-diff-row {
+    @apply flex min-h-5 min-w-0 gap-2 whitespace-pre;
+  }
+
+  .history-diff-row i {
+    @apply w-10 shrink-0 select-none text-right not-italic text-faint;
+  }
+
+  .history-diff-row code {
+    @apply min-w-0 flex-1 font-mono;
+  }
+
+  .history-diff-row[data-kind="removed"] {
+    @apply bg-danger/10 text-danger;
+  }
+
+  .history-diff-row[data-kind="added"] {
+    @apply bg-success-surface text-success;
+  }
+
+  .history-metadata-comparison {
+    @apply border-t border-line pt-3;
+  }
+
+  .history-metadata-row {
+    @apply flex min-w-0 items-start gap-2 border-b border-line py-2 text-xs text-muted;
+  }
+
+  .history-metadata-row strong {
+    @apply w-20 shrink-0 font-medium text-secondary;
+  }
+
+  .history-metadata-row span {
+    @apply min-w-0 flex-1 break-words;
+  }
+
+  .history-metadata-row[data-changed="true"] {
+    @apply bg-accent-soft;
+  }
+
+  .history-render-comparison > section {
+    @apply min-h-0;
+  }
+
+  .history-render-comparison .history-render-scroll {
+    /* Geometry rationale: the rendered version preview must fit shorter viewports and stop growing above 44rem. */
+    @apply max-h-[min(58dvh,44rem)];
+  }
+
+  .history-detail-actions {
+    @apply flex justify-end;
+  }
+
+  .history-restore-confirm-backdrop {
+    @apply fixed inset-0 z-50 grid place-items-center bg-secondary/25 p-4;
+  }
+
+  .history-restore-confirm {
+    @apply flex max-w-2xl flex-col justify-between gap-3 rounded-md border border-warning-line bg-warning-surface p-4 shadow-(--editor-dialog-shadow);
+
+    @variant md {
+      @apply flex-row items-center;
+    }
+  }
+
+  .history-restore-confirm strong {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  .history-restore-confirm p {
+    @apply mt-1 mb-0 text-xs text-muted;
+  }
+
+  .history-restore-confirm > div:last-child {
+    @apply flex shrink-0 gap-2;
+  }
+
+  .history-copy-fields {
+    @apply grid gap-3;
+
+    @variant md {
+      @apply grid-cols-2;
+    }
+  }
+
+  .history-item {
+    @apply flex min-w-0 items-center gap-2 rounded-xl border border-line bg-panel p-2;
+
+    @variant data-[current=true] {
+      @apply border-accent-line bg-accent-soft;
+    }
+  }
+
+  .history-item-select {
+    @apply flex min-w-0 flex-1 flex-col gap-1 rounded-lg p-1 text-left text-xs-note text-muted;
+
+    @variant focus-visible {
+      @apply outline-2 outline-offset-2 outline-accent;
+    }
+
+  }
+
+  .history-item-select strong {
+    @apply truncate text-secondary;
+  }
+
+  .history-retain {
+    @apply shrink-0 rounded-lg border border-line bg-panel px-2 py-1 text-xs text-muted;
+
+    @variant disabled {
+      @apply cursor-not-allowed opacity-50;
+    }
+  }
+
+  .history-render-scroll {
+    @apply max-h-96 min-w-0 overflow-auto rounded-xl border border-line bg-panel p-3;
+  }
+
+  .history-render-host {
+    @apply block min-h-48;
+  }
+
+  .history-copy-form {
+    @apply grid gap-3 border-t border-line pt-3;
+  }
+}

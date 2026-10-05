@@ -1,0 +1,45 @@
+{
+  "name": "rainy-wechat-article-editor",
+  "version": "0.2.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev -p 3500",
+    "predev": "node scripts/generate-format-assets.mjs",
+    "prebuild": "node scripts/generate-tailwind-assets.mjs && node scripts/generate-format-assets.mjs",
+    "build": "next build --webpack",
+    "start": "node scripts/start-static.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --experimental-loader ./tests/ts-loader.mjs --test tests/**/*.test.mjs"
+  },
+  "dependencies": {
+    "dompurify": "3.4.14",
+    "fflate": "0.8.2",
+    "html-to-image": "1.11.13",
+    "inline-style-parser": "0.2.7",
+    "jspdf": "3.0.0",
+    "mp-darkmode": "1.2.3-alpha.1",
+    "next": "16.3.4",
+    "parse5": "7.3.0",
+    "postcss": "8.5.23",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-raw": "7.0.0",
+    "rehype-sanitize": "6.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.1.2",
+    "tailwindcss": "4.3.3",
+    "unified": "11.0.5",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.13.4",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "typescript": "6.0.3"
+  }
+}

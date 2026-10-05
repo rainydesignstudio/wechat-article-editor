@@ -1,0 +1,55 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { readFile } from 'node:fs/promises';
+import vm from 'node:vm';
+import ts from 'typescript';
+import { jsx, jsxs } from 'react/jsx-runtime';
+import * as frontMatter from '../src/lib/frontMatter.ts';
+import * as contentValidation from '../src/lib/contentValidation.ts';
+import * as articleFormat from '../src/lib/articleFormat.ts';
+
+const source = await readFile(new URL('../src/components/content/CreateTemplateFromArticleDialog.tsx', import.meta.url), 'utf8');
+const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } }).outputText;
+
+test('creating a template takes the current draft body once and leaves the article untouched', async () => {
+  const original = frontMatter.replaceArticleBody(frontMatter.updateFrontMatter(frontMatter.createArticleSource('当前文章'), { author: '作者', categories: ['技术'], description: '当前摘要' }), '# 未保存的正文\n\n内容');
+  const root = { name: 'current-library' };
+  const writes = [], created = [];
+  const state = []; let cursor = 0;
+  const module = { exports: {} };
+  vm.runInNewContext(code, { module, exports: module.exports, require(id) {
+    if (id === 'react') return { useState(initial) { const index = cursor++; if (!(index in state)) state[index] = typeof initial === 'function' ? initial() : initial; return [state[index], next => { state[index] = typeof next === 'function' ? next(state[index]) : next; }]; }, useRef(initial) { const index = cursor++; return state[index] ??= { current: initial }; } };
+    if (id === 'react/jsx-runtime') return { jsx, jsxs };
+    if (id.endsWith('/contentLibraries')) return { isContentFileId: id => /^[a-z0-9-]+$/.test(id), async saveArticleTemplate(...args) { writes.push(args); return { id: args[1], name: frontMatter.parseArticle(args[2]).metadata.title, source: args[2], categoryId: args[4] }; } };
+    if (id.endsWith('/frontMatter')) return frontMatter;
+    if (id.endsWith('/contentValidation')) return contentValidation;
+    if (id.endsWith('/articleFormat')) return articleFormat;
+    if (id.endsWith('/ContentMetadataDialog')) return { ContentMetadataDialog: 'metadata-dialog' };
+    if (id.endsWith('/ContentMetadataEditor')) return { ContentMetadataEditor: 'metadata-editor' };
+    throw new Error(id);
+  } });
+  const props = { source: original, dirty: true, root, categories: [{ id: 'default', name: '默认' }], templates: [], isCurrent: () => true, onCreated: (...args) => created.push(args), onClose() {} };
+  const nodes = node => Array.isArray(node) ? node.flatMap(nodes) : node?.props ? [node, ...nodes(node.props.children)] : [];
+  const render = () => { cursor = 0; return nodes(module.exports.CreateTemplateFromArticleDialog(props)); };
+  let tree = render();
+  const editor = tree.find(node => node.type === 'metadata-editor');
+  assert.equal(editor.props.inputs.title, '当前文章');
+  assert.equal(editor.props.inputs.author, '作者');
+  assert.equal(editor.props.inputs.categories, '技术');
+  editor.props.onMetadataChange('title', '我的新模板');
+  tree = render();
+  const dialog = tree.find(node => node.type === 'metadata-dialog');
+  assert.equal(dialog.props.submitLabel, '创建模板');
+  const saving = dialog.props.onShortcut();
+  dialog.props.onShortcut();
+  await saving;
+  assert.equal(writes.length, 1);
+  assert.equal(writes[0][0], root);
+  assert.equal(writes[0][3], null);
+  assert.equal(writes[0][4], 'default');
+  assert.equal(frontMatter.parseArticle(writes[0][2]).body, frontMatter.parseArticle(original).body);
+  assert.equal(frontMatter.parseArticle(writes[0][2]).metadata.title, '我的新模板');
+  assert.equal(frontMatter.parseArticle(writes[0][2]).metadata.templateIcon, 'document');
+  assert.equal(created[0][0].name, '我的新模板');
+  assert.equal(original, props.source);
+});

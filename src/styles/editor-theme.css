@@ -1,0 +1,129 @@
+/* Generated fallback from editor-theme-sea-glass.json; runtime themes override these roles on :root. */
+@theme static {
+  /* Base editor theme palette values missing from the global supplement. */
+  --color-danger-600: #ad4e53;
+  --color-danger-dark-600: #f39da2;
+  --color-moss-500: #52715a;
+  --color-moss-dark-500: #a3c8ab;
+  --color-source-heading: #284750;
+  --color-source-quote: #5a777c;
+  --color-source-surface: #fcfefe;
+  --color-source-syntax: #0c7b82;
+  --color-source-text: #405861;
+  --color-success-50: #edf6ee;
+  --color-success-dark-50: #243b30;
+  --color-warning-300: #e2c58f;
+  --color-warning-50: #faf2e4;
+  --color-warning-700: #85602a;
+  --color-warning-800: #684719;
+  --color-warning-dark-300: #80683d;
+  --color-warning-dark-50: #403722;
+  --color-warning-dark-700: #e0bc79;
+  --color-warning-dark-800: #f0d39d;
+
+  /* Fixed semantic roles: each editor theme supplies light and dark values. */
+  --color-canvas: var(--color-sea-glass-100);
+  --color-rail: var(--color-sea-glass-200);
+  --color-list: var(--color-sea-glass-50);
+  --color-panel: var(--color-sea-glass-0);
+  --color-hover: var(--color-sea-glass-150);
+  --color-popup-bg: var(--color-sea-glass-0);
+  --color-primary: var(--color-sea-glass-900);
+  --color-secondary: var(--color-sea-glass-800);
+  --color-muted: var(--color-sea-glass-600);
+  --color-faint: var(--color-sea-glass-500);
+  --color-popup-text: var(--color-sea-glass-700);
+  --color-line: var(--color-sea-glass-300);
+  --color-line-strong: var(--color-sea-glass-400);
+  --color-accent: var(--color-teal-500);
+  --color-accent-strong: var(--color-teal-600);
+  --color-accent-text: var(--color-teal-600);
+  --color-accent-soft: var(--color-teal-100);
+  --color-accent-line: var(--color-teal-300);
+  --color-selection: var(--color-teal-200);
+  --color-on-accent: var(--color-sea-glass-0);
+  --color-success: var(--color-moss-500);
+  --color-success-surface: var(--color-success-50);
+  --color-warning: var(--color-warning-700);
+  --color-warning-strong: var(--color-warning-800);
+  --color-warning-surface: var(--color-warning-50);
+  --color-warning-line: var(--color-warning-300);
+  --color-danger: var(--color-danger-600);
+  --color-on-danger: var(--color-sea-glass-0);
+  --color-editor-surface: var(--color-source-surface);
+  --color-editor-text: var(--color-source-text);
+  --color-editor-syntax: var(--color-source-syntax);
+  --color-editor-heading: var(--color-source-heading);
+  --color-editor-quote: var(--color-source-quote);
+
+  /* Independent control surfaces keep pale action fills separate from focus. */
+  --color-action: var(--color-accent);
+  --color-action-hover: var(--color-accent-strong);
+  --color-action-text: var(--color-on-accent);
+  --color-action-line: var(--color-accent);
+  --color-button-surface: transparent;
+  --color-eyebrow: var(--color-accent-text);
+  --color-danger-surface: var(--color-panel);
+
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-sub-heading: var(--font-sans);
+  --font-eyebrow: var(--font-sans);
+  --font-heading: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-serif: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-editor-source: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-article-source: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --shadow-panel: 0 1rem 2.5rem color-mix(in srgb, var(--color-secondary) 6%, transparent);
+  --shadow-toggle: 0 0.15rem 0.45rem color-mix(in srgb, var(--color-secondary) 8%, transparent);
+  --shadow-popup: 0 0.5rem 1.25rem color-mix(in srgb, var(--color-secondary) 15%, transparent);
+  --shadow-dialog: 0 2rem 4rem color-mix(in srgb, var(--color-secondary) 25%, transparent);
+}
+
+:root {
+  @apply scheme-light;
+  --editor-field-background: var(--color-panel);
+  --editor-quiet-bar-background: var(--color-panel);
+  --editor-action-gradient: none;
+  --editor-canvas-wash: none;
+  --editor-popup-shadow: var(--shadow-popup);
+  --editor-dialog-shadow: var(--shadow-dialog);
+  --editor-dialog-backdrop: color-mix(in srgb, var(--color-secondary) 45%, transparent);
+}
+
+:root[data-editor-color-scheme="dark"] {
+  @apply scheme-dark;
+  --color-canvas: var(--color-sea-glass-dark-100);
+  --color-rail: var(--color-sea-glass-dark-200);
+  --color-list: var(--color-sea-glass-dark-50);
+  --color-panel: var(--color-sea-glass-dark-0);
+  --color-hover: var(--color-sea-glass-dark-250);
+  --color-popup-bg: var(--color-sea-glass-dark-popup);
+  --color-primary: var(--color-sea-glass-dark-800);
+  --color-secondary: var(--color-sea-glass-dark-700);
+  --color-muted: var(--color-sea-glass-dark-600);
+  --color-faint: var(--color-sea-glass-dark-500);
+  --color-popup-text: var(--color-sea-glass-dark-700);
+  --color-line: var(--color-sea-glass-dark-300);
+  --color-line-strong: var(--color-sea-glass-dark-400);
+  --color-accent: var(--color-teal-dark-200);
+  --color-accent-strong: var(--color-teal-dark-300);
+  --color-accent-text: var(--color-teal-dark-600);
+  --color-accent-soft: var(--color-teal-dark-100);
+  --color-accent-line: var(--color-teal-dark-300);
+  --color-selection: var(--color-teal-dark-200);
+  --color-on-accent: var(--color-sea-glass-dark-800);
+  --color-success: var(--color-moss-dark-500);
+  --color-success-surface: var(--color-success-dark-50);
+  --color-warning: var(--color-warning-dark-700);
+  --color-warning-strong: var(--color-warning-dark-800);
+  --color-warning-surface: var(--color-warning-dark-50);
+  --color-warning-line: var(--color-warning-dark-300);
+  --color-danger: var(--color-danger-dark-600);
+  --color-on-danger: var(--color-sea-glass-dark-100);
+  --color-editor-surface: var(--color-sea-glass-dark-0);
+  --color-editor-text: var(--color-sea-glass-dark-700);
+  --color-editor-syntax: var(--color-teal-dark-600);
+  --color-editor-heading: var(--color-sea-glass-dark-800);
+  --color-editor-quote: var(--color-sea-glass-dark-600);
+}
